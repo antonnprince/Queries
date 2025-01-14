@@ -1,0 +1,2 @@
+# Queries
+Sample mongoose queries 
