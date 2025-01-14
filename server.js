@@ -1,9 +1,13 @@
 import express from "express";
-import { customer } from "./customerSchema";
+import { customer } from "./customerSchema.js";
+import mongoose from "mongoose";
+import dotenv from 'dotenv'
 
-const mongoURL = 'mongodb+srv://Threads:antonprince95@cluster0.asiy8fr.mongodb.net/sample_analytics?retryWrites=true&w=majority&appName=Cluster0'
-const m = 'mongodb+srv://antonprince95:<db_password>@threads.xnhc3kw.mongodb.net/?retryWrites=true&w=majority&appName=Threads'
+dotenv.config()
 const app = express()
 app.use(express.json())
 
-app.listen(3000,()=>console.log("Running at 3000"))
+mongoose.connect(process.env.mongoURL).then(()=>{
+    console.log("DB connected")
+    app.listen(3000,()=>console.log("Server running at 3000"))
+})
