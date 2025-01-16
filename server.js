@@ -73,3 +73,21 @@ app.get('/find_one_update/:username', async (req, res) => {
     }
 });
 
+ app.post('/create', async(req,res)=>{
+    try {
+        const data = await customer.create({username:"test"})
+        return res.status(200).json({message:"Successfully Created"})
+    } catch (error) {
+        console.log(error)
+        return res.status(400).json({message:"Error"})
+    }
+ })
+
+ app.delete('/delete', async(req,res)=>{
+    try {
+        const data = await customer.findOneAndDelete({usermname:"test"})
+    } catch (error) {
+        console.log(error)
+        return res.status(400).json({message:"Error"})
+    }
+ })
