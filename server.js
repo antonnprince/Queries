@@ -127,9 +127,13 @@ app.get('/operators', async(req,res)=>{
     // const d = await customer.find({username: {$in:["test2","hymen69"]}})
     // const d = await customer.find({age: {$gt:250, $lte:300}})
     // const d = await customer.updateMany({}, {$push:{accounts:696969}})
-    const d = await customer.updateOne(
-        {username:"hymen69"},
-        {$push:{accounts:421326}}
+    // const d = await customer.updateOne(
+    //     {username:"hymen69"},
+    //     {$push:{accounts:421326}}
+    // )
+
+    const d = await customer.updateOne({username:"hymen69"},
+        {$pull:{accounts:421326}}
     )
     return res.status(200).json(d)
 })
