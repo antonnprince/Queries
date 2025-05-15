@@ -12,6 +12,8 @@ mongoose.connect(process.env.mongoURL).then(()=>{
     app.listen(3000,()=>console.log("Server running at 3000"))
 })
 
+
+app.use()
 // fetch all users
 app.get('/all', async(req, res)=>{
     try {
